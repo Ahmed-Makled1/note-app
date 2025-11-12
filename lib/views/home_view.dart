@@ -10,8 +10,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 24, right: 24),
-        child: Column(children: [CustomAppBar(), NoteListView()]),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            CustomAppBar(text: "Notes", icon: Icons.search),
+            NoteListView(),
+          ],
+        ),
       ),
       floatingActionButton: AddNoteButton(),
     );

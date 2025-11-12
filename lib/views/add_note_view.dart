@@ -9,17 +9,15 @@ class AddNoteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            CustomTextFormField(text: "Title"),
-            SizedBox(height: 16),
-            CustomTextFormField(text: "Content", maxLines: 3),
-            SizedBox(height: 16),
-            CustomButtom(),
-          ],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          CustomTextFormField(text: "Title"),
+          SizedBox(height: 16),
+          CustomTextFormField(text: "Content", maxLines: 3),
+          SizedBox(height: 16),
+          CustomButtom(),
+        ],
       ),
     );
   }
