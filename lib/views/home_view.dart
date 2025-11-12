@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/widgets/custom_app_bar.dart';
 import 'package:note_app/widgets/note_list_view.dart';
-import 'package:note_app/widgets/custom_bottom_sheet.dart';
+import 'package:note_app/views/add_note_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -17,8 +17,17 @@ class HomeView extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
             context: context,
+            isScrollControlled: true,
             builder: (context) {
-              return CustomBottomSheet();
+              return DraggableScrollableSheet(
+                expand: false,
+                builder: (context, scrollController) {
+                  return SingleChildScrollView(
+                    controller: scrollController,
+                    child: AddNoteView(),
+                  );
+                },
+              );
             },
           );
         },
