@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/widgets/custom_app_bar.dart';
 import 'package:note_app/widgets/note_list_view.dart';
-import 'package:note_app/views/add_note_view.dart';
+import 'package:note_app/widgets/add_note_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,26 +13,7 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.only(left: 24, right: 24),
         child: Column(children: [CustomAppBar(), NoteListView()]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            builder: (context) {
-              return DraggableScrollableSheet(
-                expand: false,
-                builder: (context, scrollController) {
-                  return SingleChildScrollView(
-                    controller: scrollController,
-                    child: AddNoteView(),
-                  );
-                },
-              );
-            },
-          );
-        },
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: AddNoteButton(),
     );
   }
 }
