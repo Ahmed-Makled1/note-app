@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/widgets/custom_text_form_field.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({super.key});
@@ -10,7 +11,9 @@ class CustomBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          
+          CustomTextFormField(text: "Title"),
+          SizedBox(height: 30),
+          CustomTextFormField(text: "Content", maxLines: 3),
         ],
       ),
     );
