@@ -13,7 +13,6 @@ class NoteListView extends StatelessWidget {
         builder: (context, value, child) {
           var noteList = value.values.toList();
           return ListView.builder(
-            reverse: true,
             padding: EdgeInsets.all(0),
             itemCount: noteList.length,
             itemBuilder: (context, index) {
