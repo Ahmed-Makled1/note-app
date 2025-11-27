@@ -32,12 +32,16 @@ class NoteItem extends StatelessWidget {
               contentPadding: EdgeInsets.all(0),
               title: Text(
                 note.title,
+                maxLines: 2,
                 style: TextStyle(color: Colors.black, fontSize: 22),
+                overflow: TextOverflow.ellipsis,
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16.0),
                 child: Text(
                   note.descrition,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: const Color.fromARGB(120, 0, 0, 0),
                     fontSize: 18,
