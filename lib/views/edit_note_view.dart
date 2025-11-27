@@ -49,15 +49,13 @@ class _EditNoteViewState extends State<EditNoteView> {
                 onPressedicon: () {
                   widget.note.title = titlecontroller.text;
                   widget.note.descrition = descritioncontroller.text;
-                  widget.note.date = "${DateTime.now()}";
-                  widget.note.save();  // أهم خطوة
+                  widget.note.date =
+                      "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
+                  widget.note.save(); // أهم خطوة
                   Navigator.pop(context);
                 },
               ),
-              CustomTextFormField(
-                controller: titlecontroller,
-                text: "Title",
-              ),
+              CustomTextFormField(controller: titlecontroller, text: "Title"),
               SizedBox(height: 16),
               CustomTextFormField(
                 controller: descritioncontroller,

@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            CustomAppBar(text: "Notes", icon: Icons.search),
+            CustomAppBar(text: "Notes", icon: Icons.pending_actions),
             NoteListView(),
           ],
         ),
