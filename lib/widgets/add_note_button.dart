@@ -31,7 +31,7 @@ class _AddNoteBottomSheet extends StatelessWidget {
       expand: false,
       builder: (context, scrollController) => SingleChildScrollView(
         controller: scrollController,
-        child: const AddNoteView(),
+        child: AddNoteView(),
       ),
     );
   }

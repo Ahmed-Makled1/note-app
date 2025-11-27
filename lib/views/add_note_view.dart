@@ -1,23 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_app/constant.dart';
+import 'package:note_app/models/note_model/note.dart';
 import 'package:note_app/widgets/custom_botton.dart';
 import 'package:note_app/widgets/custom_text_form_field.dart';
 
-class AddNoteView extends StatelessWidget {
-  const AddNoteView({super.key});
+class AddNoteView extends StatefulWidget {
+  AddNoteView({super.key});
+
+  @override
+  State<AddNoteView> createState() => _AddNoteViewState();
+}
+
+class _AddNoteViewState extends State<AddNoteView> {
+  final _formKey = GlobalKey<FormState>();
+
+  String title = "", descrition = "";
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          CustomTextFormField(text: "Title"),
-          SizedBox(height: 16),
-          CustomTextFormField(text: "Content", maxLines: 3),
-          SizedBox(height: 16),
-          CustomButtom(),
-        ],
+    return Form(
+      key: _formKey,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            CustomTextFormField(
+              text: "Title",
+              onChanged: (value) {
+                title = value;
+              },
+            ),
+            SizedBox(height: 16),
+            CustomTextFormField(
+              text: "Descrition",
+              maxLines: 3,
+              onChanged: (value) {
+                descrition = value;
+              },
+            ),
+            SizedBox(height: 16),
+            CustomButtom(
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  var box = Hive.box(kNoteBox);
+                  Note newNote = Note(
+                    title: title,
+                    descrition: descrition,
+                    color: 12,
+                  );
+                  box.add(newNote);
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
