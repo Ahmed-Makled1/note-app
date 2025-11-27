@@ -6,7 +6,7 @@ import 'package:note_app/widgets/custom_botton.dart';
 import 'package:note_app/widgets/custom_text_form_field.dart';
 
 class AddNoteView extends StatefulWidget {
-  AddNoteView({super.key});
+  const AddNoteView({super.key});
 
   @override
   State<AddNoteView> createState() => _AddNoteViewState();
