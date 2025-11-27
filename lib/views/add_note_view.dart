@@ -44,13 +44,15 @@ class _AddNoteViewState extends State<AddNoteView> {
             CustomButtom(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  var box = Hive.box(kNoteBox);
+                  var noteBox = Hive.box(kNoteBox);
                   Note newNote = Note(
                     title: title,
                     descrition: descrition,
+                    date: "${DateTime.now()}",
                     color: 12,
                   );
-                  box.add(newNote);
+                  noteBox.add(newNote);
+                  Navigator.pop(context);
                 }
               },
             ),

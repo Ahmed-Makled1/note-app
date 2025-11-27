@@ -10,6 +10,7 @@ class AddNoteButton extends StatelessWidget {
       isScrollControlled: true,
       builder: (context) => const _AddNoteBottomSheet(),
     );
+    
   }
 
   @override

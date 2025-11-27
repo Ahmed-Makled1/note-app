@@ -10,14 +10,16 @@ class NoteTypeAdapter extends TypeAdapter<Note> {
     return Note(
       title: reader.readString(),
       descrition: reader.readString(),
+      date: reader.readString(),
       color: reader.readInt(),
     );
   }
-  
+
   @override
   void write(BinaryWriter writer, Note obj) {
     writer.writeString(obj.title);
     writer.writeString(obj.descrition);
+    writer.writeString(obj.date);
     writer.writeInt(obj.color);
   }
 }
